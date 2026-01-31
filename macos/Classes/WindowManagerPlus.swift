@@ -39,27 +39,34 @@ extension NSWindow {
 
 extension NSRect {
     var topLeft: CGPoint {
-        set {
-            let screenFrameRect = NSScreen.screens[0].frame
-            origin.x = newValue.x
-            origin.y = screenFrameRect.height - newValue.y - size.height
-        }
         get {
-            let screenFrameRect = NSScreen.screens[0].frame
-            return CGPoint(x: origin.x, y: screenFrameRect.height - origin.y - size.height)
+            // 动态获取当前窗口所在的屏幕， fallback 到主屏幕
+            let screen = NSScreen.main?.frame ?? NSRect.zero
+            return CGPoint(x: origin.x, y: screen.height - origin.y - size.height)
+        }
+        set {
+            let screen = NSScreen.main?.frame ?? NSRect.zero
+            origin.x = newValue.x
+            origin.y = screen.height - newValue.y - size.height
         }
     }
 }
 
 /// Add extra hooks for window
-public class WindowManagerPlusFlutterWindow: NSPanel {
+public class WindowManagerPlusFlutterWindow: NSWindow {
+    // 覆盖初始化，确保它表现得像个独立窗口
+    override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool) {
+        super.init(contentRect: contentRect, styleMask: style, backing: bufferingType, defer: flag)
+        
+        // 确保窗口不会因为 App 失去焦点就消失
+        self.hidesOnDeactivate = false
+        // 允许在所有 Space 中显示（如果需要）
+        self.collectionBehavior = [.managed, .participatesInCycle]
+    }
+
     override public func order(_ place: NSWindow.OrderingMode, relativeTo otherWin: Int) {
         super.order(place, relativeTo: otherWin)
         hiddenWindowAtLaunch()
-    }
-    
-    deinit {
-        debugPrint("WindowManagerPlusFlutterWindow dealloc")
     }
 }
 

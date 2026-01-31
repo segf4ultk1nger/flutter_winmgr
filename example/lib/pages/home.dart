@@ -7,8 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:preference_list/preference_list.dart';
 import 'package:tray_manager/tray_manager.dart';
-import 'package:window_manager_plus/window_manager_plus.dart';
-import 'package:window_manager_plus_example/utils/config.dart';
+import 'package:flutter_winmgr/window_manager_plus.dart';
+import 'package:flutter_winmgr_example/utils/config.dart';
 
 const _kSizes = [
   Size(400, 400),
@@ -59,8 +59,7 @@ class _HomePageState extends State<HomePage> with TrayListener, WindowListener {
 
   final TextEditingController _methodNameController =
       TextEditingController(text: 'testMethodName');
-  final TextEditingController _firstArgController =
-      TextEditingController();
+  final TextEditingController _firstArgController = TextEditingController();
 
   @override
   void initState() {
@@ -223,13 +222,11 @@ class _HomePageState extends State<HomePage> with TrayListener, WindowListener {
                 if (selectedWindowTargetId != null) {
                   final response = await WindowManagerPlus.current
                       .invokeMethodToWindow(
-                      selectedWindowTargetId,
-                      _methodNameController.text,
-                      _firstArgController.text
-                          .trim()
-                          .isNotEmpty
-                          ? [_firstArgController.text.trim()]
-                          : null);
+                          selectedWindowTargetId,
+                          _methodNameController.text,
+                          _firstArgController.text.trim().isNotEmpty
+                              ? [_firstArgController.text.trim()]
+                              : null);
                   BotToast.showText(
                       text: 'Response from $selectedWindowTargetId: $response');
                 }

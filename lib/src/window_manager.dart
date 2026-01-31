@@ -6,11 +6,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart' as path;
-import 'package:window_manager_plus/src/resize_edge.dart';
-import 'package:window_manager_plus/src/title_bar_style.dart';
-import 'package:window_manager_plus/src/utils/calc_window_position.dart';
-import 'package:window_manager_plus/src/window_listener.dart';
-import 'package:window_manager_plus/src/window_options.dart';
+import 'package:flutter_winmgr/src/resize_edge.dart';
+import 'package:flutter_winmgr/src/title_bar_style.dart';
+import 'package:flutter_winmgr/src/utils/calc_window_position.dart';
+import 'package:flutter_winmgr/src/window_listener.dart';
+import 'package:flutter_winmgr/src/window_options.dart';
 
 const kWindowEventInitialized = 'initialized';
 const kWindowEventClose = 'close';

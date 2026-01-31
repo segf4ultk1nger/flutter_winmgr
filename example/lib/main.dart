@@ -1,9 +1,9 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:window_manager_plus/window_manager_plus.dart';
-import 'package:window_manager_plus_example/pages/home.dart';
-import 'package:window_manager_plus_example/utils/config.dart';
+import 'package:flutter_winmgr/window_manager_plus.dart';
+import 'package:flutter_winmgr_example/pages/home.dart';
+import 'package:flutter_winmgr_example/utils/config.dart';
 
 void main(List<String> args) async {
   if (kDebugMode) {

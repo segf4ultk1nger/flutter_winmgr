@@ -1,4 +1,4 @@
-import 'package:window_manager_plus/src/window_manager.dart';
+import 'package:flutter_winmgr/src/window_manager.dart';
 
 /// The `WindowListener` mixin class is used to listen to window events.
 /// If this is used as a Global Listener using the [WindowManagerPlus.addGlobalListener] static method,

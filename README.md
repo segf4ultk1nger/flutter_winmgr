@@ -1,10 +1,12 @@
-# window_manager_plus
+# flutter_winmgr
 
 [![pub version][pub-image]][pub-url] [![All Contributors][all-contributors-image]](#contributors)
 
 [pub-image]: https://img.shields.io/pub/v/window_manager_plus.svg
 [pub-url]: https://pub.dev/packages/window_manager_plus
 [all-contributors-image]: https://img.shields.io/github/all-contributors/pichillilorenzo/window_manager_plus?color=ee8449&style=flat-square
+
+flutter_winmgr fork自window_manager_plus，同步上游最新代码，优化代码，同时在后面也会移植部分WPF这边的黑科技过来。
 
 This plugin allows Flutter desktop apps to create and manage multiple windows, such as resizing and repositioning, and communicate between them.
 
@@ -194,7 +196,7 @@ The other arguments will contain the arguments passed to the `WindowManagerPlus.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:window_manager_plus/window_manager_plus.dart';
+import 'package:flutter_winmgr/window_manager_plus.dart';
 
 // Must add List<String> args parameter to your main function.
 void main(List<String> args) async {
@@ -287,7 +289,7 @@ otherwise, it will be always `null`.
 
 ```dart
 import 'package:flutter/cupertino.dart';
-import 'package:window_manager_plus/window_manager_plus.dart';
+import 'package:flutter_winmgr/window_manager_plus.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -453,7 +455,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance,
 
 ```dart
 import 'package:flutter/cupertino.dart';
-import 'package:window_manager/window_manager.dart';
+import 'package:flutter_winmgr/window_manager.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -615,7 +617,7 @@ Make sure to call `setState` once on the `onWindowFocus` event.
 
 ```dart
 import 'package:flutter/cupertino.dart';
-import 'package:window_manager/window_manager.dart';
+import 'package:flutter_winmgr/window_manager.dart';
 
 class HomePage extends StatefulWidget {
   @override
